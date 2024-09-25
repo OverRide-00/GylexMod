@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "cdm",
+  "ingredients": [
+    {
+      "item": "gylexmod:platinum_coin"
+    }
+  ],
+  "result": {
+    "item": "gylexmod:silver_coin",
+    "count": 8
+  }
+}
