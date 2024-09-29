@@ -21,6 +21,8 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 
+import java.util.Objects;
+
 public class Permit {
 
     public static void registerCommands() {
@@ -295,7 +297,7 @@ public class Permit {
             if (displayTag != null && displayTag.contains("Lore")) {
                 NbtList loreList = displayTag.getList("Lore", 8);  // 8 means it's stored as a string
                 if (loreList.size() > 1) {
-                    description = Text.Serializer.fromJson(loreList.getString(1)).getString();
+                    description = Objects.requireNonNull(Text.Serializer.fromJson(loreList.getString(1))).getString();
                 }
             }
 
@@ -321,7 +323,7 @@ public class Permit {
                     .append(Text.literal("Permit saved with details:").formatted(Formatting.GREEN)).append("\n")
                     .append(Text.literal("Name: " + name).formatted(Formatting.YELLOW)).append("\n")
                     .append(Text.literal("Description: " + description).formatted(Formatting.YELLOW)).append("\n")
-                    .append(Text.literal("Items: " + items.toString()).formatted(Formatting.YELLOW)).append("\n")
+                    .append(Text.literal("Items: " + items).formatted(Formatting.YELLOW)).append("\n")
                     .append(Text.literal("Rank: " + rank).formatted(Formatting.YELLOW)), false);
         } else {
             player.sendMessage(Text.literal("[GylexMC] : ").formatted(Formatting.LIGHT_PURPLE)
