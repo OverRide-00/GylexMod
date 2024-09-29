@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "gylexmod",
+  "version": "1.20.1",
+  "name": "gylexmod",
+  "description": "GylexMC mod to add a lot of custom features to the game",
+  "authors": ["OverRide"],
+  "contact": {},
+  "license": "unlicense",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.override.gylexmod.client.GylexmodClient"
+    ],
+    "main": [
+      "me.override.gylexmod.Gylexmod"
+    ]
+  },
+  "mixins": [
+    "gylexmod.mixins.json",
+    {
+      "config": "gylexmod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "fabric": "*",
+    "minecraft": "1.20.1"
+  }
+}
